@@ -1,0 +1,25 @@
+extends ./layout/layout.pug 
+
+block content
+    form(action='/add' method='get')
+        input(type='submit', value='Add Job')
+    form(action='/search' method='post')
+        input(type='text', name='table')
+        input(type='submit', value='Search')
+    
+    ul 
+        for item in bingus 
+            li= item.username
+    
+    
+    //- -let bdlogs = blogs
+    //- bdlogs.forEach(blog => {
+    //-     p= blog.title 
+    //-     p= blog.snippet
+    //- })
+    
+    //- p= city
+    //- .job_id
+    //- p= job_title 
+    //- p= city 
+    //- p= state 
