@@ -45,6 +45,15 @@ app.get('/jobapps', (req,res) => {
 
 app.get('/jobapps/:id', (req,res) => {
   const id = req.params.id
+  const index = 'jobs'
+  psql.query(`SELECT * FROM ${ index } WHERE job_id = ${ id }`)
+    .then(result => {
+      console.log(result.rows)
+      // res.render('details', { result })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 
 app.post('/', (req,res) => {
