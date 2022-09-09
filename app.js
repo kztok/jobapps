@@ -29,31 +29,33 @@ app.use(bodyParser.json())
 
 // routing
 app.get('/', (req,res) => {
-  res.render('index')
+  res.redirect('/jobapps')
 })
 
-app.post('/search', (req,res) => {
-  // psql.query(`SELECT * FROM ${req.body.table}`, (err, response) => {
-  //   if(err) {
-  //       console.log(err)
-  //   }
-  //   else {
-  //       console.log(response.rows[2])
-  //       // let pass = response.rows[2].job_id
-  //       // console.log(pass)
-  //       // res.render('index', { response.rows[2] })
-
-  //       // let word = jobs.job({ response })
-  //       // let word = jobs.job('curd','bread','sandwich')
-  //       // console.log(word)
-  //   }
-  //   // psql.end()
-  // })
-
-  psql.query(`SELECT * FROM ${req.body.table}`) 
+app.get('/jobapps', (req,res) => {
+  const index = 'jobs'
+  psql.query(`SELECT * FROM ${ index }`) 
     .then(result => {
-      console.log(result.rows)
-      res.render('index', {bingus: result.rows} )
+      res.render('index', { jobs: result.rows })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+app.get('/jobapps/:id', (req,res) => {
+  const id = req.params.id
+})
+
+app.post('/', (req,res) => {
+  psql.query(`INSERT INTO jobs (job_title, city, state) 
+    VALUES (
+    '${ req.body.jobTitle }',
+    '${ req.body.city }',
+    '${ req.body.state}'
+    )`)
+    .then(result => {
+      res.redirect('/jobapps')
     })
     .catch(err => {
       console.log(err)
@@ -64,12 +66,22 @@ app.get('/add', (req,res) => {
   res.render('add')
 })
 
-app.post('/add-job', (req,res) => {
-  res.send(req.body.jobTitle)
-})
-
 app.get('/about', (req,res) => {
   res.render('about')
+})
+
+app.post('/search', (req,res) => {
+  // psql.query(`SELECT * FROM ${req.body.table}`) 
+  //   .then(result => {
+  //     console.log(req.body)
+  //     console.log(req.body.table)
+
+  //     // console.log(result.rows)
+  //     res.render('index', {bingus: result.rows} )
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //   })
 })
 
 app.listen(PORT, () => { 

@@ -8,18 +8,7 @@ block content
         input(type='submit', value='Search')
     
     ul 
-        for item in bingus 
-            li= item.username
-    
-    
-    //- -let bdlogs = blogs
-    //- bdlogs.forEach(blog => {
-    //-     p= blog.title 
-    //-     p= blog.snippet
-    //- })
-    
-    //- p= city
-    //- .job_id
-    //- p= job_title 
-    //- p= city 
-    //- p= state 
+        for item in jobs
+            a(class='single' href=`/jobapps/${ item.job_id }`)
+                p= item.job_title
+            li #{ item.city }, #{ item.state }
