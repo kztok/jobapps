@@ -48,8 +48,19 @@ app.get('/jobapps/:id', (req,res) => {
   const index = 'jobs'
   psql.query(`SELECT * FROM ${ index } WHERE job_id = ${ id }`)
     .then(result => {
-      console.log(result.rows)
-      // res.render('details', { result })
+      res.render('details', { details: result.rows[0] })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+app.delete('/jobapps/:id', (req,res) => {
+  const id = req.params.id
+  const index = 'jobs'
+  psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
+    .then(result => {
+      res.json({ redirect: '/jobapps' })
     })
     .catch(err => {
       console.log(err)

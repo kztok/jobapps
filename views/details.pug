@@ -1,0 +1,18 @@
+extends ./layout/layout.pug 
+
+block content 
+    p #{ details.job_title }
+    p #{ details.city }, #{ details.state}
+    a(class='delete' data-doc=`${ details.job_id }`) deleted
+
+    script.
+        const trash = document.querySelector('a.delete')
+        trash.addEventListener('click', (e) => {
+            const endpoint = `/jobapps/${ trash.dataset.doc }`
+            fetch(endpoint, {
+                method: 'DELETE',
+            })
+            .then(response => response.json())
+            .then((data) => window.location.href = data.redirect)
+            .catch(err => console.log(err))
+        })
