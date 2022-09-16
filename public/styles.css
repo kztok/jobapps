@@ -27,3 +27,25 @@ a {
     padding: 18px;
     align-self: stretch;
 }
+
+.details {
+    position: relative;
+}
+
+.trashcan {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    border-radius: 10px;
+    padding: 5px 4px 3px 4px;
+    background-color: red;
+    color: white;
+}
+
+.trashcan:hover {
+    background-color: white;
+    color: red;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.2)
+}

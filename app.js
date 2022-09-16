@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 // const psql = require('./db')
 
-const  jobs  = require('./models/jobs')
+const jobs  = require('./models/jobs')
 // import jobs from './models/jobs'
 
 require('dotenv').config()
@@ -10,6 +10,7 @@ require('dotenv').config()
 const app = express()
 const PORT = process.env.PORT
 
+app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'pug')
 
 // db
