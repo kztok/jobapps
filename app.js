@@ -56,18 +56,6 @@ app.get('/jobapps/:id', (req,res) => {
     })
 })
 
-app.delete('/jobapps/:id', (req,res) => {
-  const id = req.params.id
-  const index = 'jobs'
-  psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
-    .then(result => {
-      res.json({ redirect: '/jobapps' })
-    })
-    .catch(err => {
-      console.log(err)
-    })
-})
-
 app.post('/', (req,res) => {
   psql.query(`INSERT INTO jobs (job_title, city, state) 
     VALUES (
@@ -83,8 +71,32 @@ app.post('/', (req,res) => {
     })
 })
 
+app.delete('/jobapps/:id', (req,res) => {
+  const id = req.params.id
+  const index = 'jobs'
+  psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
+    .then(result => {
+      res.json({ redirect: '/jobapps' })
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 app.get('/add', (req,res) => {
   res.render('add')
+})
+
+app.get('/update/:id', (req,res) => {
+  const id = req.params.id
+  const index = 'jobs'
+  psql.query(`SELECT * FROM ${ index } WHERE job_id = ${ id }`)
+    .then(result => {
+      res.render('update', { update: result.rows[0] })
+    })
+    .catch(err => {
+      console.log(err)
+    })
 })
 
 app.get('/about', (req,res) => {
