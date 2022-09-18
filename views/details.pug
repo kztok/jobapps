@@ -3,10 +3,20 @@ extends ./layout/layout.pug
 block content 
     div(class='details')
         p <strong>Job Title:</strong> #{ details.job_title }
-        p <strong>Location:</strong> #{ details.city }, #{ details.state}
-        a(class='update' href=`/update/${ details.job_id }`)
+        p <strong>Location:</strong> #{ details.city }, #{ details.state }
+        //- update
+        p <strong> Update Job Title: </strong> 
+            input(id='jobTitle' type='text')
+        p
+            <strong> Update City: </strong> 
+                input(id='city' type='text')
+            <strong> Update State: </strong>
+                input(id='state' type='text')        
+         
+        a(class='update' data-doc=`${ details.job_id }`)
             .update-icon 
-                p Update
+                button() Update
+
         a(class='delete' data-doc=`${ details.job_id }`)
             .trashcan
                 svg(x="10px" y="0px" viewBox="0 0 458.5 458.5" style="enable-background:new 0 0 458.5 458.5")
@@ -25,6 +35,28 @@ block content
                         C136.828,385.607,143.544,392.323,151.828,392.323z`)
 
     script.
+        const updates = document.querySelector('a.update')
+        updates.addEventListener('click', (e) => {
+            const endpoint = `/jobapps/${ updates.dataset.doc }`
+            jobTitle = document.getElementById('jobTitle')
+            city = document.getElementById('city')
+            state = document.getElementById('state')
+            fetch(endpoint, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    jobTitle: jobTitle.value,
+                    city: city.value,
+                    state: state.value
+                }),
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then((data) => console.log(data))
+            .catch(err => console.log(err))
+        })
+
         const trash = document.querySelector('a.delete')
         trash.addEventListener('click', (e) => {
             const endpoint = `/jobapps/${ trash.dataset.doc }`

@@ -32,11 +32,11 @@ a {
     position: relative;
 }
 
-.update {
+/* .update {
     position: absolute;
     top: 0;
     right: 36px;
-}
+} */
 
 .trashcan {
     cursor: pointer;

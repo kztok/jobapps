@@ -6,5 +6,23 @@ block content
             strong Update Job Information
         p: input(type='text' placeholder='Job Title' name='jobTitle')
         p: input(type='text' placeholder='City' name='city')
-        p: input(type="text", placeholder='State' name='state')
-        p: input(type='submit' value='Update')
+        p: input(type='text' placeholder='State' name='state')
+        p: input(class='updates' type='submit' value='Update')
+    p(id='demo')
+    p(id='dldl')
+    script.
+        document.querySelector('input.updates').addEventListener("click", displayDate);
+
+        function displayDate() {
+            document.getElementById("demo").innerHTML = Date();
+        }
+        //- const uploadss = document.querySelector('.updates')
+        document.querySelector('input.updates').addEventListener('click', displayButt)
+        function displayButt() {
+            document.getElementById("dldl").innerHTML = Date();
+        }
+        //- uploadss.addEventListener('click', 'helo')
+        
+        //- (e) => {
+        //-     console.log('updated')
+        //- })

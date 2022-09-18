@@ -71,6 +71,20 @@ app.post('/', (req,res) => {
     })
 })
 
+app.patch('/jobapps/:id', (req,res) => {
+  const id = req.params.id
+  const index = 'jobs'
+  console.log('hello')
+  console.log(req.body.jobTitle)
+  // psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
+  //   .then(result => {
+  //     res.json({ redirect: '/jobapps' })
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //   })
+})
+
 app.delete('/jobapps/:id', (req,res) => {
   const id = req.params.id
   const index = 'jobs'
@@ -85,18 +99,6 @@ app.delete('/jobapps/:id', (req,res) => {
 
 app.get('/add', (req,res) => {
   res.render('add')
-})
-
-app.get('/update/:id', (req,res) => {
-  const id = req.params.id
-  const index = 'jobs'
-  psql.query(`SELECT * FROM ${ index } WHERE job_id = ${ id }`)
-    .then(result => {
-      res.render('update', { update: result.rows[0] })
-    })
-    .catch(err => {
-      console.log(err)
-    })
 })
 
 app.get('/about', (req,res) => {
