@@ -25,7 +25,7 @@ const psql = new Client ({
 psql.connect()
 
 // middleware
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // routing
@@ -74,15 +74,20 @@ app.post('/', (req,res) => {
 app.patch('/jobapps/:id', (req,res) => {
   const id = req.params.id
   const index = 'jobs'
-  console.log('hello')
-  console.log(req.body.jobTitle)
-  // psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
-  //   .then(result => {
-  //     res.json({ redirect: '/jobapps' })
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
+  async function updateDB() {
+    for (const [key, value] of Object.entries(req.body)) {
+      if(value) {
+        psql.query(`UPDATE ${ index } SET ${ key } = '${ value }' WHERE job_id = ${ id }`)
+      }
+    }
+  }
+  updateDB()
+    .then(result => {
+      res.json({ redirect: `/jobapps/${ id }` })
+    })
+    .catch((err) => {
+      console.error(err)
+    })
 })
 
 app.delete('/jobapps/:id', (req,res) => {

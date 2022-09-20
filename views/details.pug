@@ -44,7 +44,7 @@ block content
             fetch(endpoint, {
                 method: 'PATCH',
                 body: JSON.stringify({
-                    jobTitle: jobTitle.value,
+                    job_title: jobTitle.value,
                     city: city.value,
                     state: state.value
                 }),
@@ -53,7 +53,7 @@ block content
                 }
             })
             .then(response => response.json())
-            .then((data) => console.log(data))
+            .then((data) => window.location.href = data.redirect)
             .catch(err => console.log(err))
         })
 
