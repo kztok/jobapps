@@ -1,6 +1,5 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-// const psql = require('./db')
 
 const jobs  = require('./models/jobs')
 // import jobs from './models/jobs'
