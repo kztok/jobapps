@@ -16,11 +16,6 @@ ul {
     padding: 0 24px;
 }
 
-.main, .content {
-    display: flex;
-    flex-direction: column;
-}
-
 .header, .footer {
     background-color: #1f2937;
     flex-grow: 0;
@@ -37,7 +32,7 @@ ul {
     color: white;
 }
 
-.footer .content{
+.footer {
     color: white;
     font-weight: 400;
 }
@@ -47,9 +42,6 @@ ul {
     flex-direction: row;
     flex-grow: 1;
     justify-content: space-between;
-}
-
-.main .left, .main .right {
 }
 
 .main .content {
