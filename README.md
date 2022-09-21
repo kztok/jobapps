@@ -1,6 +1,6 @@
 <h2>Job Application Tracking Website</h2>
 
-<h4><strong>Features:</strong></h4>
+<h4><bold>Features:</bold></h4>
 <ul>
   <li>CRUD application</li>
   <li>Database</li>
