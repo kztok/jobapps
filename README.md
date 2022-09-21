@@ -1,4 +1,4 @@
-Job Application Tracking Website
+<h1>Job Application Tracking Website</h1>
 
 Tech:
 <ul>
