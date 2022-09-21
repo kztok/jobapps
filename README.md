@@ -1,5 +1,5 @@
 <h1>Job Application Tracking Website</h1>
-<br>
+
 <h2>Features:</h2>
 <ul>
   <li>CRUD application</li>
