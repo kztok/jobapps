@@ -1,12 +1,12 @@
 Job Application Tracking Website
 
 Tech:
-  -PostgreSQL
-  -Javascript
-  -Express
-  -PUG(HTML)
-  -CSS
+  PostgreSQL
+  Javascript
+  Express
+  PUG(HTML)
+  CSS
 
 Features:
-  -CRUD application
-  -Database
+  CRUD application
+  Database
