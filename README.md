@@ -1,5 +1,5 @@
 <h1>Job Application Tracking Website</h1>
-  
+<br>
 Tech:
 <ul>
   <li>PostgreSQL</li>
