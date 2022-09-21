@@ -109,20 +109,6 @@ app.get('/about', (req,res) => {
   res.render('about')
 })
 
-app.post('/search', (req,res) => {
-  // psql.query(`SELECT * FROM ${req.body.table}`) 
-  //   .then(result => {
-  //     console.log(req.body)
-  //     console.log(req.body.table)
-
-  //     // console.log(result.rows)
-  //     res.render('index', {bingus: result.rows} )
-  //   })
-  //   .catch(err => {
-  //     console.log(err)
-  //   })
-})
-
 app.listen(PORT, () => { 
   console.log(`Server running on port: http://localhost:${PORT}`) 
 })

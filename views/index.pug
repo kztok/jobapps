@@ -4,12 +4,10 @@ block content
     .homepage
         form(action='/add' method='get')
             input(type='submit', value='Add Job')
-        form(action='/search' method='post')
-            input(type='text', name='table')
-            input(type='submit', value='Search')
         
         ul 
             for item in jobs
-                a(class='single' href=`/jobapps/${ item.job_id }`)
-                    p= item.job_title
-                li #{ item.city }, #{ item.state }
+                .job
+                    a(class='single' href=`/jobapps/${ item.job_id }`)
+                        h3= item.job_title
+                    p #{ item.city }, #{ item.state }

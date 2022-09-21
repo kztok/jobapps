@@ -9,31 +9,58 @@ body {
 
 a {
     text-decoration: none;
+    color: black
+}
+
+ul {
+    padding: 0 24px;
 }
 
 .main, .content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+}
+
+.header, .footer {
+    background-color: #1f2937;
+    flex-grow: 0;
+    text-align: center;
 }
 
 .header {
-    background-color: #1f2937;
     font-size: 24px;
     font-weight: 700;
     padding: 18px;
-    align-self: stretch;
 }
 
 .header a {
     color: white;
 }
 
+.footer .content{
+    color: white;
+    font-weight: 400;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.main .left, .main .right {
+}
+
 .main .content {
-    padding: 24px;
+    flex-grow: 1;
+    max-width: 800px;
+    padding: 12px;
     background-color: white;
-    width: 60%;
+}
+
+.job {
+    border-bottom: 1px solid #ccc!important;
 }
 
 .details {
