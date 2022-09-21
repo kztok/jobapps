@@ -1,6 +1,7 @@
 <h1>Job Application Tracking Website</h1>
 <br>
-Tech:
+
+<h2>Tech:</h2>
 <ul>
   <li>PostgreSQL</li>
   <li>Javascript</li>
@@ -8,7 +9,8 @@ Tech:
   <li>PUG(HTML)</li>
   <li>CSS</li>
 </ul>
-Features:
+
+<h2>Features:</h2>
 <ul>
   <li>CRUD application</li>
   <li>Database</li>
