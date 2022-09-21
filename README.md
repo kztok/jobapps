@@ -1,12 +1,12 @@
 <h2>Job Application Tracking Website</h2>
 
-<h4><bold>Features:</bold></h4>
+<h3>Features:</h4>
 <ul>
   <li>CRUD application</li>
   <li>Database</li>
 </ul>
 
-<h4>Tech:</h4>
+<h3>Tech:</h3>
 <ul>
   <li>PostgreSQL</li>
   <li>Javascript</li>
