@@ -10,9 +10,12 @@ html(lang='en')
     body
         .header
             block header 
-                a(href='/') JobApps 
-        .content
-            block content 
+                .content
+                    a(href='/') JobApps 
+        .main
+            .content
+                block content 
         .footer 
             block footer
-                p footer
+                .content
+                    p footer
