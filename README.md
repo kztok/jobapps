@@ -15,4 +15,14 @@
   <li>CSS</li>
 </ul>
 
+<h3>Notes:</h3>
+<ul>
+  <li>Pending</li>
+</ul>
+
+<h3>Future Updates:</h3>
+<ul>
+  <li>Format files to MVC</li>
+</ul>
+
 
