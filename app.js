@@ -1,10 +1,9 @@
+require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const jobs  = require('./models/jobs')
+const routes_jobapps = require('./routes/jobapps')
 // import jobs from './models/jobs'
-
-require('dotenv').config()
 
 const app = express()
 const PORT = process.env.PORT
@@ -28,20 +27,22 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // routing
-app.get('/', (req,res) => {
-  res.redirect('/jobapps')
-})
+// app.get('/', (req,res) => {
+//   res.redirect('/jobapps')
+// })
 
-app.get('/jobapps', (req,res) => {
-  const index = 'jobs'
-  psql.query(`SELECT * FROM ${ index }`) 
-    .then(result => {
-      res.render('index', { jobs: result.rows })
-    })
-    .catch(err => {
-      console.log(err)
-    })
-})
+// app.get('/jobapps', (req,res) => {
+//   const index = 'jobs'
+//   psql.query(`SELECT * FROM ${ index }`) 
+//     .then(result => {
+//       res.render('index', { jobs: result.rows })
+//     })
+//     .catch(err => {
+//       console.log(err)
+//     })
+// })
+
+routes_jobapps(app)
 
 app.get('/jobapps/:id', (req,res) => {
   const id = req.params.id
