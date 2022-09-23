@@ -17,12 +17,12 @@
 
 <h3>Notes:</h3>
 <ul>
-  <li>Pending</li>
+  <li>MVC format</li>
 </ul>
 
 <h3>Future Updates:</h3>
 <ul>
-  <li>Format files to MVC</li>
+  <li>Improve design</li>
 </ul>
 
 
