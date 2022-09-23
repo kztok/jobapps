@@ -6,8 +6,8 @@ module.exports = {
         res.redirect('/jobapps')
     },
     
-    getHomepage(req,res) {
-        Jobapps.get()
+    getJobs(req,res) {
+        Jobapps.Jobs()
             .then(result => {
                 res.render('index', { jobs: result.rows })
             })
