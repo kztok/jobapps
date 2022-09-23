@@ -10,7 +10,7 @@ psql.connect()
 
 const Jobapps = {}
 
-Jobapps.getJobs = () => {
+Jobapps.getHome = () => {
     const index = 'jobs'
     return psql.query(`SELECT * FROM ${ index }`) 
 }

@@ -6,8 +6,8 @@ module.exports = {
         res.redirect('/jobapps')
     },
     
-    getJobs(req,res) {
-        Jobapps.Jobs()
+    getHome(req,res) {
+        Jobapps.getHome()
             .then(result => {
                 res.render('index', { jobs: result.rows })
             })
@@ -24,6 +24,10 @@ module.exports = {
             .catch(err => {
                 console.log(err)
             })
+    },
+    
+    getAdd(req,res) {
+        res.render('add')
     },
 
     post(req,res) {
@@ -55,5 +59,9 @@ module.exports = {
             .catch(err => {
                 console.log(err)
             })
+    },
+
+    getAbout(req,res) {
+        res.render('about')
     }
 }
