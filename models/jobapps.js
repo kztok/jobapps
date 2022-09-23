@@ -15,4 +15,35 @@ Jobapps.get = () => {
     return psql.query(`SELECT * FROM ${ index }`) 
 }
 
+Jobapps.getDetails = (id) => {
+    const index = 'jobs'
+    return psql.query(`SELECT * FROM ${ index } WHERE job_id = ${ id }`)
+}
+
+Jobapps.post = (details) => {
+    const index = 'jobs'
+    return psql.query(`INSERT INTO jobs (job_title, city, state) 
+    VALUES (
+        '${ details.jobTitle }',
+        '${ details.city }',
+        '${ details.state}'
+    )`)
+}
+
+Jobapps.patch = (id,details) => {
+    const index = 'jobs'
+    async function updateDB() {
+        for (const [key, value] of Object.entries(details)) {
+            if(value) {
+            psql.query(`UPDATE ${ index } SET ${ key } = '${ value }' WHERE job_id = ${ id }`)
+    }}}
+    return updateDB()
+}
+
+Jobapps.delete = (id) => {
+    const index = 'jobs'
+    return psql.query(`DELETE FROM ${ index } WHERE job_id = ${ id }`)
+}
+
+
 module.exports = Jobapps
